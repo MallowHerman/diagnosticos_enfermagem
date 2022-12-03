@@ -1,51 +1,13 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from .models import Diagnoses
 
-diagnosticos = [
-    {
-        'diagnostico': 'Nutrição desequilibrada: menor do que as necessidades corporais',
-        'definicao': 'Ingestão de nutrientes insuficiente para satisfazer às necessidades metabólicas.',
-        'carateristicas': ['Alteração no paladar', 'Aversão a alimento', 'Cavidade oral ferida', 'Cólica abdominal'],
-    },
-    {
-        'diagnostico': 'Nutrição desequilibrada: menor do que as necessidades corporais',
-        'definicao': 'Ingestão de nutrientes insuficiente para satisfazer às necessidades metabólicas.',
-        'carateristicas': ['Alteração no paladar', 'Aversão a alimento', 'Cavidade oral ferida', 'Cólica abdominal'],
-    },
-    {
-        'diagnostico': 'Nutrição desequilibrada: menor do que as necessidades corporais',
-        'definicao': 'Ingestão de nutrientes insuficiente para satisfazer às necessidades metabólicas.',
-        'carateristicas': ['Alteração no paladar', 'Aversão a alimento', 'Cavidade oral ferida', 'Cólica abdominal'],
-    },
-    {
-        'diagnostico': 'Nutrição desequilibrada: menor do que as necessidades corporais',
-        'definicao': 'Ingestão de nutrientes insuficiente para satisfazer às necessidades metabólicas.',
-        'carateristicas': ['Alteração no paladar', 'Aversão a alimento', 'Cavidade oral ferida', 'Cólica abdominal'],
-    },
-    {
-        'diagnostico': 'Nutrição desequilibrada: menor do que as necessidades corporais',
-        'definicao': 'Ingestão de nutrientes insuficiente para satisfazer às necessidades metabólicas.',
-        'carateristicas': ['Alteração no paladar', 'Aversão a alimento', 'Cavidade oral ferida', 'Cólica abdominal'],
-    },
-    {
-        'diagnostico': 'Nutrição desequilibrada: menor do que as necessidades corporais',
-        'definicao': 'Ingestão de nutrientes insuficiente para satisfazer às necessidades metabólicas.',
-        'carateristicas': ['Alteração no paladar', 'Aversão a alimento', 'Cavidade oral ferida', 'Cólica abdominal'],
-    },
-    {
-        'diagnostico': 'Nutrição desequilibrada: menor do que as necessidades corporais',
-        'definicao': 'Ingestão de nutrientes insuficiente para satisfazer às necessidades metabólicas.',
-        'carateristicas': ['Alteração no paladar', 'Aversão a alimento', 'Cavidade oral ferida', 'Cólica abdominal'],
-    },
-    {
-        'diagnostico': 'Nutrição desequilibrada: menor do que as necessidades corporais',
-        'definicao': 'Ingestão de nutrientes insuficiente para satisfazer às necessidades metabólicas.',
-        'carateristicas': ['Alteração no paladar', 'Aversão a alimento', 'Cavidade oral ferida', 'Cólica abdominal'],
-    }
-]
+class DiagnosesListView(ListView):
+    model: Diagnoses
+    template_name: "nanda/diagnoses.html"
+    queryset = Diagnoses.objects.all()
+    context_object_name: 'diagnoses_list'
 
-def index(request):
-    context = {
-        'diagnosticos': diagnosticos
-    }
-    return render(request, 'nanda/index.html', context)
-
+class DiagnosesDetailView(DetailView):
+    model = Diagnoses
