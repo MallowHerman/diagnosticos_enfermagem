@@ -3,13 +3,18 @@
 <main class="">
     <div class="container">
         {% for diagnostico in diagnosticos %}
-        <div class="d-flex">
-            <div>
-                <span>1.</span>
+        <div class="d-flex my-3">
+            <div class="" style="font-weight: 500;">
+                <span>{{forloop.counter}}.</span>
             </div>
-            <article class="d-flex">
+            <article class="mx-2">
                 <div>
-                    {{diagnostico.diagnostico}}
+                    <a class="fw-500" href="" style="text-decoration: none; color: rgb(36, 41, 47); font-weight: 500; font-size: 18px; line-height: 1.5;">
+                        {{diagnostico.diagnostico}}
+                    </a>
+                </div>
+                <div class="" style="font-size: 12px; color: rgb(110, 119, 129)">
+                    <span class="mr-1">Domínio: Nutrição</span> - <span class="mx-1">Classe 1: Ingestão</span> - <span class="ml-1">Código de diagnóstico: 00002</span>
                 </div>
             </article>
         </div> 
