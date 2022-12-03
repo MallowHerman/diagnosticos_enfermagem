@@ -11,3 +11,4 @@ class DiagnosesListView(ListView):
 
 class DiagnosesDetailView(DetailView):
     model = Diagnoses
+    #context_object_name: 'diagnosis'
